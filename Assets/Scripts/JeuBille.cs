@@ -22,6 +22,10 @@ public class JeuBille : MonoBehaviour
             Invoke("RestartGame", secondes);
         
 
+        } 
+        else if(collision.gameObject.CompareTag("Rouge")){
+        Destroy(collision.gameObject);        
+
         }
         
     }
@@ -31,5 +35,8 @@ public class JeuBille : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
      }
+
+
+   
 }
 
