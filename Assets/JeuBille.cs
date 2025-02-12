@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class DestroyPlatform : MonoBehaviour
+public class JeuBille : MonoBehaviour
 {
     public void BeginGame()
     {
@@ -13,16 +13,23 @@ public class DestroyPlatform : MonoBehaviour
         Destroy(platform);
   
     }
+
     public void OnCollisionEnter(Collision collision) 
     {        
-        int secondes = 5f * Time.deltaTime;
+        float secondes = 220 * Time.deltaTime;
 
         if(collision.gameObject.CompareTag("Fin")){
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Invoke("RestartGame", secondes);
+        
 
         }
         
     }
+
+    public void RestartGame()
+    {        
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+     }
 }
 
